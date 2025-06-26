@@ -66,14 +66,53 @@ export const skills: Skill[] = [
   { name: "FastAPI", level: 80, category: "Backend" },
 ];
 
-// Add soft skills
-export const softSkills = [
-  { name: "Leadership", level: 90 },
-  { name: "Communication", level: 95 },
-  { name: "Problem Solving", level: 92 },
-  { name: "Team Collaboration", level: 88 },
-  { name: "Project Management", level: 85 },
-  { name: "Mentoring", level: 82 },
+// Leadership experiences
+export interface LeadershipExperience {
+  title: string;
+  organization: string;
+  duration: string;
+  description: string;
+  impact: string[];
+  skills: string[];
+}
+
+export const leadershipExperiences: LeadershipExperience[] = [
+  {
+    title: "President",
+    organization: "Computer Science Student Association",
+    duration: "2021 - 2022",
+    description: "Led a student organization of 200+ members, organizing technical workshops, career fairs, and networking events.",
+    impact: [
+      "Increased membership by 150% through innovative outreach programs",
+      "Organized 15+ technical workshops with industry professionals",
+      "Secured $50,000 in sponsorship funding for events"
+    ],
+    skills: ["Event Planning", "Public Speaking", "Budget Management", "Team Leadership"]
+  },
+  {
+    title: "Team Captain",
+    organization: "ACM Programming Team",
+    duration: "2020 - 2022",
+    description: "Captained competitive programming team of 8 members, leading training sessions and competition strategy.",
+    impact: [
+      "Led team to 3rd place finish at Regional ICPC",
+      "Developed training curriculum improving team average by 40%",
+      "Mentored 5 junior members who later became team leads"
+    ],
+    skills: ["Strategic Planning", "Mentoring", "Technical Training", "Problem Solving"]
+  },
+  {
+    title: "Teaching Assistant",
+    organization: "UC Berkeley - Data Structures Course",
+    duration: "2021 - 2022",
+    description: "Assisted in teaching fundamental computer science concepts to 300+ students per semester.",
+    impact: [
+      "Improved student understanding with innovative teaching methods",
+      "Maintained 4.8/5.0 teaching rating across 3 semesters",
+      "Created supplementary materials used by 500+ students"
+    ],
+    skills: ["Teaching", "Communication", "Curriculum Development", "Student Mentoring"]
+  }
 ];
 
 export const education: Education[] = [

@@ -2,24 +2,22 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { useTheme } from "@/components/ThemeProvider";
-import { Moon, Sun, Menu, X, ChevronDown, Star, GraduationCap, Trophy } from "lucide-react";
+import { Menu, X, ChevronDown, Star, Users, Trophy } from "lucide-react";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/projects", label: "Projects" },
+  { href: "/experiences", label: "Experiences" },
   { href: "/contact", label: "Contact" },
 ];
 
 const resumeSubLinks = [
-  { href: "/resume#skills", label: "Skills", icon: Star },
-  { href: "/resume#education", label: "Education", icon: GraduationCap },
+  { href: "/resume#skills", label: "Technical Skills", icon: Star },
+  { href: "/resume#leadership", label: "Leadership", icon: Users },
   { href: "/resume#competitions", label: "Competitions", icon: Trophy },
 ];
 
 export function Navigation() {
   const [location] = useLocation();
-  const { theme, toggleTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isResumeHovered, setIsResumeHovered] = useState(false);
@@ -57,9 +55,9 @@ export function Navigation() {
               </motion.span>
             </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-8">
+            {/* Desktop Navigation - moved to the right */}
+            <div className="hidden md:flex items-center justify-end flex-1">
+              <div className="flex items-baseline space-x-8">
                 {navLinks.map((link) => (
                   <Link key={link.href} href={link.href}>
                     <motion.span
@@ -143,39 +141,19 @@ export function Navigation() {
               </div>
             </div>
 
-            <div className="flex items-center space-x-4">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={toggleTheme}
-                className="p-2 hover:bg-accent"
-              >
-                <motion.div
-                  whileHover={{ rotate: 180 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {theme === "dark" ? (
-                    <Sun className="h-4 w-4" />
-                  ) : (
-                    <Moon className="h-4 w-4" />
-                  )}
-                </motion.div>
-              </Button>
-
-              {/* Mobile menu button */}
-              <Button
-                variant="ghost"
-                size="sm"
-                className="md:hidden p-2"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              >
-                {isMobileMenuOpen ? (
-                  <X className="h-4 w-4" />
-                ) : (
-                  <Menu className="h-4 w-4" />
-                )}
-              </Button>
-            </div>
+            {/* Mobile menu button */}
+            <Button
+              variant="ghost"
+              size="sm"
+              className="md:hidden p-2"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-4 w-4" />
+              ) : (
+                <Menu className="h-4 w-4" />
+              )}
+            </Button>
           </div>
         </div>
 
@@ -205,6 +183,19 @@ export function Navigation() {
                     </motion.span>
                   </Link>
                 ))}
+                <Link href="/resume">
+                  <motion.span
+                    className={`block px-3 py-2 rounded-md text-base font-medium cursor-pointer transition-colors duration-200 ${
+                      location === "/resume" || location.startsWith("/resume")
+                        ? "text-primary bg-accent"
+                        : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                    }`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    whileHover={{ x: 5 }}
+                  >
+                    Resume
+                  </motion.span>
+                </Link>
               </div>
             </motion.div>
           )}

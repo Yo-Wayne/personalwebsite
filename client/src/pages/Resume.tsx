@@ -3,8 +3,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import { Download, Award, GraduationCap, Trophy, Star, Calendar, MapPin, Users, Target } from "lucide-react";
-import { skills, education, competitions } from "@/lib/mockData";
+import { Download, Star, Users, Trophy, Target, Award } from "lucide-react";
+import { skills, leadershipExperiences, competitions } from "@/lib/mockData";
 
 const skillCategories = ["Frontend", "Backend", "DevOps", "Mobile", "AI/ML"] as const;
 
@@ -25,14 +25,14 @@ export default function Resume() {
           <div className="text-center mb-16">
             <h1 className="text-4xl lg:text-5xl font-bold mb-4 gradient-text">Resume</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              My technical expertise, educational background, and competitive achievements.
+              My technical expertise, leadership experience, and competitive achievements.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Skills Section */}
+        {/* Technical Skills Section */}
         <ScrollReveal delay={0.2}>
-          <section className="mb-20">
+          <section id="skills" className="mb-20">
             <div className="flex items-center mb-8">
               <Star className="h-6 w-6 text-blue-500 mr-3" />
               <h2 className="text-3xl font-bold">Technical Skills</h2>
@@ -91,78 +91,77 @@ export default function Resume() {
           </section>
         </ScrollReveal>
 
-        {/* Education Section */}
+        {/* Leadership Section */}
         <ScrollReveal delay={0.4}>
-          <section className="mb-20">
+          <section id="leadership" className="mb-20">
             <div className="flex items-center mb-8">
-              <GraduationCap className="h-6 w-6 text-green-500 mr-3" />
-              <h2 className="text-3xl font-bold">Education</h2>
+              <Users className="h-6 w-6 text-purple-500 mr-3" />
+              <h2 className="text-3xl font-bold">Leadership Experience</h2>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-1 gap-8">
-              {education.map((edu, index) => (
+            <div className="space-y-8">
+              {leadershipExperiences.map((exp, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                  transition={{ duration: 0.6, delay: 0.6 + index * 0.2 }}
                 >
-                  <Card className="glass-effect border-0 border-l-4 border-l-green-500">
+                  <Card className="glass-effect border-0 border-l-4 border-l-purple-500">
                     <CardContent className="p-8">
                       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                         {/* Main Info */}
-                        <div className="lg:col-span-1">
-                          <h3 className="text-2xl font-bold text-green-500 mb-2">{edu.school}</h3>
-                          <p className="text-xl font-semibold mb-2">{edu.degree}</p>
-                          <div className="space-y-2 text-muted-foreground">
-                            <div className="flex items-center">
-                              <Calendar className="h-4 w-4 mr-2" />
-                              <span>{edu.startDate} - {edu.endDate}</span>
+                        <div className="lg:col-span-2">
+                          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                            <div>
+                              <h3 className="text-2xl font-bold text-purple-500 mb-1">{exp.title}</h3>
+                              <h4 className="text-xl font-semibold mb-2">{exp.organization}</h4>
                             </div>
-                            <div className="flex items-center">
-                              <MapPin className="h-4 w-4 mr-2" />
-                              <span>{edu.location}</span>
-                            </div>
-                            <div className="flex items-center">
-                              <Award className="h-4 w-4 mr-2" />
-                              <span className="font-semibold text-green-500">GPA: {edu.gpa}</span>
-                            </div>
+                            <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/20 self-start">
+                              {exp.duration}
+                            </Badge>
+                          </div>
+
+                          <p className="text-muted-foreground mb-6 leading-relaxed">
+                            {exp.description}
+                          </p>
+
+                          <div className="mb-6">
+                            <h5 className="text-lg font-semibold mb-3 flex items-center">
+                              <Target className="h-4 w-4 mr-2" />
+                              Impact & Achievements
+                            </h5>
+                            <ul className="space-y-2">
+                              {exp.impact.map((impact, impactIndex) => (
+                                <motion.li
+                                  key={impactIndex}
+                                  className="flex items-start"
+                                  initial={{ opacity: 0, x: -20 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ delay: 0.8 + index * 0.2 + impactIndex * 0.1 }}
+                                >
+                                  <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                  <span className="text-muted-foreground">{impact}</span>
+                                </motion.li>
+                              ))}
+                            </ul>
                           </div>
                         </div>
 
-                        {/* Coursework */}
+                        {/* Skills */}
                         <div>
-                          <h4 className="text-lg font-semibold mb-3">Relevant Coursework</h4>
+                          <h5 className="text-lg font-semibold mb-3">Leadership Skills</h5>
                           <div className="flex flex-wrap gap-2">
-                            {edu.coursework.map((course, courseIndex) => (
+                            {exp.skills.map((skill, skillIndex) => (
                               <motion.div
-                                key={course}
+                                key={skill}
                                 initial={{ opacity: 0, scale: 0.8 }}
                                 animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 0.8 + courseIndex * 0.05 }}
+                                transition={{ delay: 1 + index * 0.2 + skillIndex * 0.05 }}
                               >
-                                <Badge variant="outline" className="text-green-600 border-green-500/20">
-                                  {course}
+                                <Badge variant="outline" className="text-purple-600 border-purple-500/20">
+                                  {skill}
                                 </Badge>
-                              </motion.div>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Honors */}
-                        <div>
-                          <h4 className="text-lg font-semibold mb-3">Academic Honors</h4>
-                          <div className="space-y-2">
-                            {edu.honors.map((honor, honorIndex) => (
-                              <motion.div
-                                key={honor}
-                                className="flex items-center"
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.9 + honorIndex * 0.1 }}
-                              >
-                                <Trophy className="h-4 w-4 text-yellow-500 mr-2" />
-                                <span className="text-sm">{honor}</span>
                               </motion.div>
                             ))}
                           </div>
@@ -176,11 +175,11 @@ export default function Resume() {
           </section>
         </ScrollReveal>
 
-        {/* Competitions Section */}
+        {/* Competitions & Achievements Section */}
         <ScrollReveal delay={0.6}>
-          <section className="mb-16">
+          <section id="competitions" className="mb-16">
             <div className="flex items-center mb-8">
-              <Trophy className="h-6 w-6 text-purple-500 mr-3" />
+              <Trophy className="h-6 w-6 text-yellow-500 mr-3" />
               <h2 className="text-3xl font-bold">Competitions & Achievements</h2>
             </div>
             
@@ -193,22 +192,22 @@ export default function Resume() {
                   transition={{ duration: 0.6, delay: 0.8 + index * 0.2 }}
                   whileHover={{ scale: 1.02 }}
                 >
-                  <Card className="glass-effect border-0 border-l-4 border-l-purple-500 h-full">
+                  <Card className="glass-effect border-0 border-l-4 border-l-yellow-500 h-full">
                     <CardContent className="p-6">
                       <div className="flex items-start justify-between mb-4">
                         <div>
-                          <h3 className="text-xl font-bold text-purple-500 mb-1">{comp.name}</h3>
+                          <h3 className="text-xl font-bold text-yellow-500 mb-1">{comp.name}</h3>
                           <p className="text-sm text-muted-foreground">{comp.role}</p>
                         </div>
-                        <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/20">
+                        <Badge className="bg-yellow-500/20 text-yellow-600 border-yellow-500/20">
                           {comp.year}
                         </Badge>
                       </div>
 
                       <div className="mb-4">
                         <div className="flex items-center mb-2">
-                          <Target className="h-4 w-4 text-purple-500 mr-2" />
-                          <span className="font-semibold text-purple-400">{comp.placement}</span>
+                          <Award className="h-4 w-4 text-yellow-500 mr-2" />
+                          <span className="font-semibold text-yellow-600">{comp.placement}</span>
                         </div>
                       </div>
 
@@ -218,7 +217,7 @@ export default function Resume() {
 
                       <div>
                         <h4 className="text-sm font-semibold mb-2 flex items-center">
-                          <Users className="h-4 w-4 mr-1" />
+                          <Star className="h-4 w-4 mr-1" />
                           Skills Demonstrated
                         </h4>
                         <div className="flex flex-wrap gap-1">
@@ -229,7 +228,7 @@ export default function Resume() {
                               animate={{ opacity: 1, scale: 1 }}
                               transition={{ delay: 1 + index * 0.2 + skillIndex * 0.05 }}
                             >
-                              <Badge variant="outline" className="text-xs text-purple-600 border-purple-500/20">
+                              <Badge variant="outline" className="text-xs text-yellow-600 border-yellow-500/20">
                                 {skill}
                               </Badge>
                             </motion.div>

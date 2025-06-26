@@ -51,19 +51,18 @@ const quickNav = [
     href: "/resume",
     icon: FileText,
     title: "Resume",
-    description: "Experience & Skills",
+    description: "Skills & Leadership",
     color: "hover:bg-blue-500/10",
     iconColor: "text-blue-500",
   },
   {
-    href: "/projects",
+    href: "/experiences",
     icon: Laptop,
-    title: "Projects",
-    description: "Recent Work",
+    title: "Experiences",
+    description: "Work & Research",
     color: "hover:bg-cyan-500/10",
     iconColor: "text-cyan-500",
   },
-
   {
     href: "/contact",
     icon: Mail,
