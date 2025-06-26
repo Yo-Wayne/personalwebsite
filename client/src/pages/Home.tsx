@@ -63,14 +63,7 @@ const quickNav = [
     color: "hover:bg-cyan-500/10",
     iconColor: "text-cyan-500",
   },
-  {
-    href: "/publications",
-    icon: PenTool,
-    title: "Writing",
-    description: "Articles & Papers",
-    color: "hover:bg-green-500/10",
-    iconColor: "text-green-500",
-  },
+
   {
     href: "/contact",
     icon: Mail,
@@ -196,15 +189,59 @@ export default function Home() {
                 transition={{ duration: 0.3 }}
               >
                 <div className="relative w-full max-w-md mx-auto">
+                  {/* Top Right Status Indicators */}
+                  <div className="absolute -top-8 -right-8 z-10 flex flex-col space-y-3">
+                    <motion.div
+                      className="glass-effect rounded-full p-3 border border-green-500/20 bg-green-500/10"
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6, delay: 1 }}
+                      whileHover={{ scale: 1.1 }}
+                    >
+                      <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                    </motion.div>
+                    <motion.div
+                      className="glass-effect rounded-lg p-2 px-3 text-xs font-medium text-muted-foreground border border-blue-500/20 bg-blue-500/10"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 1.2 }}
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      Available
+                    </motion.div>
+                    <motion.div
+                      className="glass-effect rounded-lg p-2 px-3 text-xs font-medium text-muted-foreground border border-cyan-500/20 bg-cyan-500/10"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 1.4 }}
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      SF, CA
+                    </motion.div>
+                  </div>
+
                   <img 
                     src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600" 
                     alt="Alex Chen - Professional headshot" 
                     className="rounded-2xl shadow-2xl w-full h-auto object-cover" 
                   />
                   <div className="absolute inset-0 rounded-2xl ring-1 ring-white/10"></div>
+                  
                   {/* Floating elements */}
                   <div className="absolute -top-4 -right-4 w-20 h-20 bg-blue-500/20 rounded-full blur-xl animate-pulse"></div>
                   <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-cyan-500/20 rounded-full blur-xl animate-pulse"></div>
+                  
+                  {/* Bottom Left Achievement Badge */}
+                  <motion.div
+                    className="absolute -bottom-6 -left-6 glass-effect rounded-xl p-3 border border-purple-500/20 bg-purple-500/10"
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 1.6 }}
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                  >
+                    <div className="text-xs font-bold text-purple-400">5+ YRS</div>
+                    <div className="text-xs text-muted-foreground">Experience</div>
+                  </motion.div>
                 </div>
               </motion.div>
             </ScrollReveal>

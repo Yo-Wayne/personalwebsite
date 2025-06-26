@@ -4,15 +4,24 @@ export interface Skill {
   category: "Frontend" | "Backend" | "DevOps" | "Mobile" | "AI/ML";
 }
 
-export interface Experience {
-  title: string;
-  company: string;
+export interface Education {
+  school: string;
+  degree: string;
+  gpa: string;
   location: string;
   startDate: string;
   endDate: string;
+  coursework: string[];
+  honors: string[];
+}
+
+export interface Competition {
+  name: string;
+  role: string;
+  placement: string;
+  year: string;
   description: string;
-  type: "work" | "education" | "award";
-  color: string;
+  skills: string[];
 }
 
 export interface Project {
@@ -57,47 +66,64 @@ export const skills: Skill[] = [
   { name: "FastAPI", level: 80, category: "Backend" },
 ];
 
-export const experiences: Experience[] = [
+// Add soft skills
+export const softSkills = [
+  { name: "Leadership", level: 90 },
+  { name: "Communication", level: 95 },
+  { name: "Problem Solving", level: 92 },
+  { name: "Team Collaboration", level: 88 },
+  { name: "Project Management", level: 85 },
+  { name: "Mentoring", level: 82 },
+];
+
+export const education: Education[] = [
   {
-    title: "Senior Software Engineer",
-    company: "TechCorp Solutions",
-    location: "San Francisco, CA",
-    startDate: "2022",
-    endDate: "Present",
-    description: "Leading a team of 5 developers building scalable web applications. Architected microservices handling 1M+ daily requests.",
-    type: "work",
-    color: "blue",
-  },
-  {
-    title: "Full-Stack Developer",
-    company: "StartupXYZ",
-    location: "San Francisco, CA",
-    startDate: "2020",
+    school: "University of California, Berkeley",
+    degree: "B.S. Computer Science",
+    gpa: "3.85/4.0",
+    location: "Berkeley, CA",
+    startDate: "2018",
     endDate: "2022",
-    description: "Developed and maintained React/Node.js applications. Reduced page load times by 40% through optimization.",
-    type: "work",
-    color: "cyan",
+    coursework: [
+      "Data Structures & Algorithms",
+      "Machine Learning",
+      "Computer Systems",
+      "Database Systems",
+      "Software Engineering"
+    ],
+    honors: [
+      "Magna Cum Laude",
+      "Dean's List (6 semesters)",
+      "Outstanding CS Student Award"
+    ]
+  }
+];
+
+export const competitions: Competition[] = [
+  {
+    name: "VEX Robotics World Championship",
+    role: "Lead Programmer & Team Captain",
+    placement: "2nd Place - Skills Challenge",
+    year: "2017",
+    description: "Led a team of 5 students in designing and programming an autonomous robot. Implemented advanced pathfinding algorithms and sensor integration.",
+    skills: ["C++", "Robotics", "Team Leadership", "Problem Solving"]
   },
   {
-    title: "B.S. Computer Science",
-    company: "University of Technology",
-    location: "San Francisco, CA",
-    startDate: "2016",
-    endDate: "2020",
-    description: "Magna Cum Laude • GPA: 3.8/4.0 • Dean's List",
-    type: "education",
-    color: "green",
+    name: "Google Code Jam",
+    role: "Individual Competitor",
+    placement: "Top 1000 Worldwide",
+    year: "2021",
+    description: "Competed in Google's annual programming competition, solving complex algorithmic problems under time pressure.",
+    skills: ["Algorithms", "Data Structures", "Python", "Competitive Programming"]
   },
   {
-    title: "Innovation Award",
-    company: "Tech Excellence Awards",
-    location: "San Francisco, CA",
-    startDate: "2021",
-    endDate: "2021",
-    description: "Recognized for developing an AI-powered code review system that improved team productivity by 35%.",
-    type: "award",
-    color: "purple",
-  },
+    name: "MIT BattleCode Programming Competition",
+    role: "Team Lead",
+    placement: "Top 25 Finalist",
+    year: "2022",
+    description: "Developed AI strategy for real-time strategy game. Created sophisticated decision-making algorithms and optimization techniques.",
+    skills: ["Java", "AI Strategy", "Game Theory", "Optimization"]
+  }
 ];
 
 export const projects: Project[] = [

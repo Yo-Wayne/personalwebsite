@@ -20,7 +20,7 @@ function Router() {
         <Route path="/" component={Home} />
         <Route path="/resume" component={Resume} />
         <Route path="/projects" component={Projects} />
-        <Route path="/publications" component={Publications} />
+
         <Route path="/contact" component={Contact} />
         <Route component={NotFound} />
       </Switch>
@@ -50,7 +50,7 @@ function App() {
                     <a href="/" className="text-muted-foreground hover:text-foreground transition-colors duration-200">Home</a>
                     <a href="/resume" className="text-muted-foreground hover:text-foreground transition-colors duration-200">Resume</a>
                     <a href="/projects" className="text-muted-foreground hover:text-foreground transition-colors duration-200">Projects</a>
-                    <a href="/publications" className="text-muted-foreground hover:text-foreground transition-colors duration-200">Writing</a>
+
                     <a href="/contact" className="text-muted-foreground hover:text-foreground transition-colors duration-200">Contact</a>
                   </div>
                 </div>
