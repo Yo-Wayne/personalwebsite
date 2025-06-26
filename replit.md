@@ -110,6 +110,13 @@ Changelog:
 - June 26, 2025. Removed Projects and Publications pages, replaced with comprehensive Experiences page
 - June 26, 2025. Added Blog/Vision section for sharing thoughts and industry philosophies
 - June 26, 2025. Updated navigation order: Home → Resume → Experiences → Blog → Contact
+- June 26, 2025. Updated all personal information for Yo-Wayne Chen: 17-year-old Full-Stack Software Engineer from Taipei, Taiwan
+- June 26, 2025. Updated contact details: yowayne.chen@gmail.com, +886 988502733, Taipei location
+- June 26, 2025. Updated experience: Intelligo internship, Academia Sinica & Chiao-Tung University research
+- June 26, 2025. Updated education: Asia American International Academy student
+- June 26, 2025. Updated achievements: VEX Robotics Champion, Debate Champion, Student Council President
+- June 26, 2025. Updated stats: 4+ years coding, 5168 cups coffee, 100000+ aura points, 404 hours sleep lost
+- June 26, 2025. Updated technical skills including C++ (90%), Java (70%), and comprehensive tech stack
 ```
 
 ## User Preferences

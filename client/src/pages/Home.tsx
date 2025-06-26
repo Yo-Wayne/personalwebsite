@@ -19,29 +19,29 @@ import {
 const stats = [
   {
     icon: Code,
-    value: "5+ Years",
+    value: "4+ Years",
     label: "Coding Experience",
     color: "text-blue-500",
     bgColor: "bg-blue-500/10",
   },
   {
     icon: Coffee,
-    value: "2847",
+    value: "5168",
     label: "Cups of Coffee",
     color: "text-cyan-500",
     bgColor: "bg-cyan-500/10",
   },
   {
     icon: Zap,
-    value: "50+",
-    label: "Projects Built",
+    value: "100000+",
+    label: "Aura Points",
     color: "text-green-500",
     bgColor: "bg-green-500/10",
   },
   {
     icon: Users,
-    value: "25+",
-    label: "Team Projects",
+    value: "404",
+    label: "Hours Sleep Lost",
     color: "text-purple-500",
     bgColor: "bg-purple-500/10",
   },
@@ -100,7 +100,7 @@ export default function Home() {
     
     Want to collaborate? Let's build something amazing together!
     
-    - Alex
+    - Yo-Wayne Chen
   `);
 
   return (
@@ -117,7 +117,7 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
                 >
-                  <span className="gradient-text">Alex Chen</span>
+                  <span className="gradient-text">Yo-Wayne Chen</span>
                 </motion.h1>
                 <motion.p 
                   className="text-xl lg:text-2xl text-muted-foreground mb-6"
@@ -133,7 +133,7 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                  Crafting elegant solutions to complex problems. Passionate about building scalable applications that make a difference.
+                  I'm a 17-year-old student from Taipei, Taiwan, currently studying at Asia American International Academy. At my core, I'm driven by a simple yet difficult mission: to help build a better world. Whether it's creating tools that support people with disabilities, empowering young creators through open-source platforms, or making technology more inclusive and accessible, I believe thoughtful design and engineering can be powerful tools for meaningful change.
                 </motion.p>
               </div>
               
@@ -172,12 +172,12 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
               >
-                <Link href="/projects">
+                <Link href="/resume">
                   <Button 
                     size="lg" 
                     className="group"
                   >
-                    View My Work
+                    View Resume
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </Link>
@@ -247,7 +247,7 @@ export default function Home() {
                     transition={{ duration: 0.6, delay: 1.6 }}
                     whileHover={{ scale: 1.1, rotate: 5 }}
                   >
-                    <div className="text-xs font-bold text-purple-400">5+ YRS</div>
+                    <div className="text-xs font-bold text-purple-400">4+ YRS</div>
                     <div className="text-xs text-muted-foreground">Experience</div>
                   </motion.div>
                 </div>
@@ -280,6 +280,20 @@ export default function Home() {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="py-12 border-t border-border/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p className="text-lg text-muted-foreground mb-4">
+              Building the future, one solution at a time.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              © 2025 Yo-Wayne Chen. All rights reserved. Made with ❤️ and lots of ☕.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

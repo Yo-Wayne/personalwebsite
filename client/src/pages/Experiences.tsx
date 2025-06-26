@@ -29,60 +29,45 @@ interface ResearchExperience {
 
 const workExperiences: WorkExperience[] = [
   {
-    title: "Senior Software Engineer",
-    company: "TechCorp Solutions",
-    location: "San Francisco, CA",
-    startDate: "2022",
+    title: "Software Engineering Intern",
+    company: "Intelligo",
+    location: "Taipei, Taiwan",
+    startDate: "2024",
     endDate: "Present",
-    description: "Leading a team of 5 developers building scalable web applications. Architected microservices handling 1M+ daily requests and implemented CI/CD pipelines reducing deployment time by 60%.",
-    technologies: ["React", "Node.js", "TypeScript", "AWS", "Docker", "Kubernetes"],
+    description: "Working on full-stack development projects, contributing to innovative software solutions and gaining hands-on experience in professional software development.",
+    technologies: ["React", "Node.js", "TypeScript", "Python", "PostgreSQL", "AWS"],
     achievements: [
-      "Reduced system latency by 40% through optimization",
-      "Led migration to microservices architecture",
-      "Mentored 3 junior developers"
-    ]
-  },
-  {
-    title: "Full-Stack Developer",
-    company: "StartupXYZ",
-    location: "San Francisco, CA",
-    startDate: "2020",
-    endDate: "2022",
-    description: "Developed and maintained React/Node.js applications serving 100k+ users. Built real-time analytics dashboard and payment processing system.",
-    technologies: ["React", "Node.js", "PostgreSQL", "Redis", "Stripe API"],
-    achievements: [
-      "Reduced page load times by 40%",
-      "Built payment system processing $2M+ annually",
-      "Implemented real-time analytics dashboard"
+      "Contributed to production-level applications",
+      "Collaborated with senior developers on complex projects",
+      "Implemented new features and bug fixes"
     ]
   }
 ];
 
 const researchExperiences: ResearchExperience[] = [
   {
-    title: "Machine Learning Research Assistant",
-    institution: "UC Berkeley AI Lab",
-    supervisor: "Dr. Sarah Johnson",
-    location: "Berkeley, CA",
-    startDate: "2021",
-    endDate: "2022",
-    description: "Conducted research on neural network optimization and edge computing applications. Developed novel algorithms for model compression achieving 70% size reduction with minimal accuracy loss.",
+    title: "Research Assistant",
+    institution: "Academia Sinica",
+    supervisor: "Research Team",
+    location: "Taipei, Taiwan",
+    startDate: "2024",
+    endDate: "Present",
+    description: "Conducting research in computer science and technology applications. Working on innovative projects that contribute to the advancement of technology and scientific knowledge.",
     publications: [
-      "Efficient Neural Network Compression for Edge Devices (NeurIPS 2022)",
-      "Optimization Techniques for Real-time ML Inference (ICML 2022)"
+      "Research work in progress"
     ],
-    skills: ["Python", "TensorFlow", "PyTorch", "CUDA", "Research Writing"]
+    skills: ["Python", "Research Methodology", "Data Analysis", "Technical Writing"]
   },
   {
-    title: "Computer Vision Research Intern",
-    institution: "Stanford Vision Lab",
-    supervisor: "Prof. Michael Chen",
-    location: "Stanford, CA",
-    startDate: "Summer 2021",
-    endDate: "Summer 2021",
-    description: "Worked on computer vision models for autonomous vehicle perception. Implemented and improved object detection algorithms for real-time traffic analysis.",
+    title: "Research Assistant",
+    institution: "National Chiao Tung University",
+    supervisor: "Research Team",
+    location: "Hsinchu, Taiwan",
+    startDate: "2024",
+    endDate: "Present",
+    description: "Participating in advanced research projects focusing on cutting-edge technology solutions and academic research methodologies.",
     publications: [
-      "Real-time Object Detection for Autonomous Vehicles (CVPR 2022)"
+      "Research work in progress"
     ],
     skills: ["Python", "OpenCV", "Deep Learning", "Computer Vision", "ROS"]
   }

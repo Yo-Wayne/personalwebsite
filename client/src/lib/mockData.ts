@@ -58,12 +58,13 @@ export const skills: Skill[] = [
   { name: "Python", level: 90, category: "Backend" },
   { name: "PostgreSQL", level: 80, category: "Backend" },
   { name: "MongoDB", level: 75, category: "Backend" },
+  { name: "FastAPI", level: 80, category: "Backend" },
   { name: "Docker", level: 85, category: "DevOps" },
   { name: "AWS", level: 80, category: "DevOps" },
   { name: "CI/CD", level: 85, category: "DevOps" },
   { name: "React Native", level: 70, category: "Mobile" },
-  { name: "TensorFlow", level: 75, category: "AI/ML" },
-  { name: "FastAPI", level: 80, category: "Backend" },
+  { name: "C++", level: 90, category: "Backend" },
+  { name: "Java", level: 70, category: "Backend" },
 ];
 
 // Leadership experiences
@@ -79,89 +80,69 @@ export interface LeadershipExperience {
 export const leadershipExperiences: LeadershipExperience[] = [
   {
     title: "President",
-    organization: "Computer Science Student Association",
-    duration: "2021 - 2022",
-    description: "Led a student organization of 200+ members, organizing technical workshops, career fairs, and networking events.",
+    organization: "Student Council",
+    duration: "2024 - Present",
+    description: "Leading student body initiatives and representing student interests at Asia American International Academy.",
     impact: [
-      "Increased membership by 150% through innovative outreach programs",
-      "Organized 15+ technical workshops with industry professionals",
-      "Secured $50,000 in sponsorship funding for events"
+      "Organized school-wide events and activities",
+      "Improved student-faculty communication",
+      "Led policy discussions affecting student life"
     ],
-    skills: ["Event Planning", "Public Speaking", "Budget Management", "Team Leadership"]
+    skills: ["Leadership", "Public Speaking", "Event Planning", "Advocacy"]
   },
   {
     title: "Team Captain",
-    organization: "ACM Programming Team",
-    duration: "2020 - 2022",
-    description: "Captained competitive programming team of 8 members, leading training sessions and competition strategy.",
+    organization: "VEX Robotics Team",
+    duration: "2023 - Present",
+    description: "Leading robotics team in competitive programming and engineering challenges.",
     impact: [
-      "Led team to 3rd place finish at Regional ICPC",
-      "Developed training curriculum improving team average by 40%",
-      "Mentored 5 junior members who later became team leads"
+      "Achieved VEX Robotics Champion status",
+      "Mentored team members in programming and design",
+      "Developed innovative robot solutions"
     ],
-    skills: ["Strategic Planning", "Mentoring", "Technical Training", "Problem Solving"]
-  },
-  {
-    title: "Teaching Assistant",
-    organization: "UC Berkeley - Data Structures Course",
-    duration: "2021 - 2022",
-    description: "Assisted in teaching fundamental computer science concepts to 300+ students per semester.",
-    impact: [
-      "Improved student understanding with innovative teaching methods",
-      "Maintained 4.8/5.0 teaching rating across 3 semesters",
-      "Created supplementary materials used by 500+ students"
-    ],
-    skills: ["Teaching", "Communication", "Curriculum Development", "Student Mentoring"]
+    skills: ["Technical Leadership", "Engineering", "Programming", "Team Management"]
   }
 ];
 
 export const education: Education[] = [
   {
-    school: "University of California, Berkeley",
-    degree: "B.S. Computer Science",
-    gpa: "3.85/4.0",
-    location: "Berkeley, CA",
-    startDate: "2018",
-    endDate: "2022",
+    school: "Asia American International Academy",
+    degree: "High School Student",
+    gpa: "N/A",
+    location: "Taipei, Taiwan",
+    startDate: "2022",
+    endDate: "Present",
     coursework: [
-      "Data Structures & Algorithms",
-      "Machine Learning",
-      "Computer Systems",
-      "Database Systems",
-      "Software Engineering"
+      "Advanced Computer Science",
+      "Mathematics",
+      "Physics",
+      "English Literature",
+      "International Business"
     ],
     honors: [
-      "Magna Cum Laude",
-      "Dean's List (6 semesters)",
-      "Outstanding CS Student Award"
+      "Student Council President",
+      "VEX Robotics Champion",
+      "Debate Champion"
     ]
   }
 ];
 
 export const competitions: Competition[] = [
   {
-    name: "VEX Robotics World Championship",
-    role: "Lead Programmer & Team Captain",
-    placement: "2nd Place - Skills Challenge",
-    year: "2017",
-    description: "Led a team of 5 students in designing and programming an autonomous robot. Implemented advanced pathfinding algorithms and sensor integration.",
-    skills: ["C++", "Robotics", "Team Leadership", "Problem Solving"]
+    name: "VEX Robotics Championship",
+    role: "Team Captain",
+    placement: "Champion",
+    year: "2024",
+    description: "Led robotics team to championship victory through innovative programming and engineering solutions.",
+    skills: ["C++", "Robotics", "Team Leadership", "Engineering Design"]
   },
   {
-    name: "Google Code Jam",
-    role: "Individual Competitor",
-    placement: "Top 1000 Worldwide",
-    year: "2021",
-    description: "Competed in Google's annual programming competition, solving complex algorithmic problems under time pressure.",
-    skills: ["Algorithms", "Data Structures", "Python", "Competitive Programming"]
-  },
-  {
-    name: "MIT BattleCode Programming Competition",
-    role: "Team Lead",
-    placement: "Top 25 Finalist",
-    year: "2022",
-    description: "Developed AI strategy for real-time strategy game. Created sophisticated decision-making algorithms and optimization techniques.",
-    skills: ["Java", "AI Strategy", "Game Theory", "Optimization"]
+    name: "Debate Championship",
+    role: "Debater",
+    placement: "Champion",
+    year: "2024",
+    description: "Won championship through strong argumentation, research skills, and public speaking ability.",
+    skills: ["Public Speaking", "Research", "Critical Thinking", "Argumentation"]
   }
 ];
 
