@@ -87,16 +87,27 @@ export default function Contact() {
     setIsSubmitting(true);
     
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      toast({
-        title: "Message sent successfully!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
+      const response = await fetch('/api/contacts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
       });
       
-      form.reset();
+      const result = await response.json();
+      
+      if (result.success) {
+        toast({
+          title: "Message sent successfully!",
+          description: "Thank you for reaching out. I'll get back to you soon.",
+        });
+        form.reset();
+      } else {
+        throw new Error(result.error || 'Failed to send message');
+      }
     } catch (error) {
+      console.error('Error sending message:', error);
       toast({
         title: "Error sending message",
         description: "Please try again later or contact me directly via email.",

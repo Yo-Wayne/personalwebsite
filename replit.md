@@ -104,6 +104,7 @@ This is a modern full-stack portfolio web application built with a React fronten
 ```
 Changelog:
 - June 26, 2025. Initial setup
+- June 26, 2025. Added PostgreSQL database integration with contact form functionality
 ```
 
 ## User Preferences
