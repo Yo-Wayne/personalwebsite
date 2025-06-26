@@ -41,8 +41,8 @@ function App() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex flex-col md:flex-row justify-between items-center">
                 <div className="mb-4 md:mb-0">
-                  <span className="text-xl font-bold gradient-text">Alex Chen</span>
-                  <p className="text-muted-foreground mt-2">Building the future, one line of code at a time.</p>
+                  <span className="text-xl font-bold gradient-text">Yo-Wayne Chen</span>
+                  <p className="text-muted-foreground mt-2">Building the future, one solution at a time.</p>
                 </div>
                 <div className="flex space-x-6">
                   <a href="/" className="text-muted-foreground hover:text-foreground transition-colors duration-200">Home</a>
@@ -53,7 +53,7 @@ function App() {
                 </div>
               </div>
               <div className="mt-8 pt-8 border-t border-border text-center">
-                <p className="text-muted-foreground">&copy; 2023 Alex Chen. All rights reserved. Made with ❤️ and lots of ☕</p>
+                <p className="text-muted-foreground">&copy; 2025 Yo-Wayne Chen. All rights reserved. Made with ❤️ and lots of ☕</p>
               </div>
             </div>
           </footer>

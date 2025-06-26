@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
@@ -13,8 +14,17 @@ import {
   PenTool, 
   Mail,
   Brain,
-  ArrowRight
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
+
+// Import your photos
+import photo1 from "@assets/Screenshot 2025-06-26 at 2.59.15 PM_1750921161231.png";
+import photo2 from "@assets/Screenshot 2025-06-26 at 2.59.29 PM_1750921171136.png";
+import photo3 from "@assets/Screenshot 2025-06-26 at 2.59.38 PM_1750921180368.png";
+
+const photos = [photo1, photo2, photo3];
 
 const stats = [
   {
@@ -83,6 +93,25 @@ const quickNav = [
 ];
 
 export default function Home() {
+  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
+
+  // Auto-rotate photos every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPhotoIndex((prev) => (prev + 1) % photos.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const nextPhoto = () => {
+    setCurrentPhotoIndex((prev) => (prev + 1) % photos.length);
+  };
+
+  const prevPhoto = () => {
+    setCurrentPhotoIndex((prev) => (prev - 1 + photos.length) % photos.length);
+  };
+
   // Console Easter egg
   console.log(`
     ██╗  ██╗███████╗██╗     ██╗      ██████╗ 
@@ -189,7 +218,7 @@ export default function Home() {
               </motion.div>
             </ScrollReveal>
 
-            {/* Professional Photo */}
+            {/* Photo Carousel */}
             <ScrollReveal direction="left" delay={0.4}>
               <motion.div 
                 className="relative animate-float"
@@ -224,16 +253,49 @@ export default function Home() {
                       transition={{ duration: 0.6, delay: 1.4 }}
                       whileHover={{ scale: 1.05 }}
                     >
-                      SF, CA
+                      Taipei, TW
                     </motion.div>
                   </div>
 
-                  <img 
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600" 
-                    alt="Alex Chen - Professional headshot" 
-                    className="rounded-2xl shadow-2xl w-full h-auto object-cover" 
-                  />
-                  <div className="absolute inset-0 rounded-2xl ring-1 ring-white/10"></div>
+                  {/* Photo Display with Navigation */}
+                  <div className="relative">
+                    <img 
+                      src={photos[currentPhotoIndex]}
+                      alt={`Yo-Wayne Chen - Photo ${currentPhotoIndex + 1}`}
+                      className="rounded-2xl shadow-2xl w-full h-auto object-cover aspect-square" 
+                    />
+                    <div className="absolute inset-0 rounded-2xl ring-1 ring-white/10"></div>
+                    
+                    {/* Navigation Buttons */}
+                    <button
+                      onClick={prevPhoto}
+                      className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-all duration-200 z-10"
+                    >
+                      <ChevronLeft className="h-4 w-4" />
+                    </button>
+                    
+                    <button
+                      onClick={nextPhoto}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-all duration-200 z-10"
+                    >
+                      <ChevronRight className="h-4 w-4" />
+                    </button>
+
+                    {/* Photo Indicators */}
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+                      {photos.map((_, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setCurrentPhotoIndex(index)}
+                          className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                            index === currentPhotoIndex
+                              ? "bg-white scale-125"
+                              : "bg-white/50 hover:bg-white/75"
+                          }`}
+                        />
+                      ))}
+                    </div>
+                  </div>
                   
                   {/* Floating elements */}
                   <div className="absolute -top-4 -right-4 w-20 h-20 bg-blue-500/20 rounded-full blur-xl animate-pulse"></div>
@@ -281,19 +343,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 border-t border-border/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <p className="text-lg text-muted-foreground mb-4">
-              Building the future, one solution at a time.
-            </p>
-            <p className="text-sm text-muted-foreground">
-              © 2025 Yo-Wayne Chen. All rights reserved. Made with ❤️ and lots of ☕.
-            </p>
-          </div>
-        </div>
-      </footer>
+
     </div>
   );
 }
