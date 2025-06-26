@@ -105,7 +105,7 @@ This is a modern full-stack portfolio web application built with a React fronten
 Changelog:
 - June 26, 2025. Initial setup
 - June 26, 2025. Added PostgreSQL database integration with contact form functionality
-- June 26, 2025. Removed dark mode functionality completely, navigation moved to right side
+- June 26, 2025. Set dark mode as default theme, removed light mode, navigation moved to right side
 - June 26, 2025. Restructured pages: Home, Resume (Technical Skills, Leadership, Competitions), Experiences (Work & Research), Contact
 - June 26, 2025. Removed Projects and Publications pages, replaced with comprehensive Experiences page
 ```
