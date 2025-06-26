@@ -108,6 +108,8 @@ Changelog:
 - June 26, 2025. Set dark mode as default theme, removed light mode, navigation moved to right side
 - June 26, 2025. Restructured pages: Home, Resume (Technical Skills, Leadership, Competitions), Experiences (Work & Research), Contact
 - June 26, 2025. Removed Projects and Publications pages, replaced with comprehensive Experiences page
+- June 26, 2025. Added Blog/Vision section for sharing thoughts and industry philosophies
+- June 26, 2025. Updated navigation order: Home → Resume → Experiences → Blog → Contact
 ```
 
 ## User Preferences

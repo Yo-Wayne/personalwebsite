@@ -8,6 +8,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/Home";
 import Resume from "@/pages/Resume";
 import Experiences from "@/pages/Experiences";
+import Blog from "@/pages/Blog";
 import Contact from "@/pages/Contact";
 import NotFound from "@/pages/not-found";
 
@@ -18,6 +19,7 @@ function Router() {
         <Route path="/" component={Home} />
         <Route path="/resume" component={Resume} />
         <Route path="/experiences" component={Experiences} />
+        <Route path="/blog" component={Blog} />
         <Route path="/contact" component={Contact} />
         <Route component={NotFound} />
       </Switch>
@@ -46,6 +48,7 @@ function App() {
                   <a href="/" className="text-muted-foreground hover:text-foreground transition-colors duration-200">Home</a>
                   <a href="/resume" className="text-muted-foreground hover:text-foreground transition-colors duration-200">Resume</a>
                   <a href="/experiences" className="text-muted-foreground hover:text-foreground transition-colors duration-200">Experiences</a>
+                  <a href="/blog" className="text-muted-foreground hover:text-foreground transition-colors duration-200">Blog</a>
                   <a href="/contact" className="text-muted-foreground hover:text-foreground transition-colors duration-200">Contact</a>
                 </div>
               </div>

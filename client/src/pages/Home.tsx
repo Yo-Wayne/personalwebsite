@@ -12,6 +12,7 @@ import {
   Laptop, 
   PenTool, 
   Mail,
+  Brain,
   ArrowRight
 } from "lucide-react";
 
@@ -62,6 +63,14 @@ const quickNav = [
     description: "Work & Research",
     color: "hover:bg-cyan-500/10",
     iconColor: "text-cyan-500",
+  },
+  {
+    href: "/blog",
+    icon: Brain,
+    title: "Blog",
+    description: "Vision & Thoughts",
+    color: "hover:bg-green-500/10",
+    iconColor: "text-green-500",
   },
   {
     href: "/contact",
