@@ -2,26 +2,21 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, Star, Users, Trophy } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { href: "/", label: "Home" },
+  { href: "/resume", label: "Resume" },
   { href: "/experiences", label: "Experiences" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
-];
-
-const resumeSubLinks = [
-  { href: "/resume#skills", label: "Technical Skills", icon: Star },
-  { href: "/resume#leadership", label: "Leadership", icon: Users },
-  { href: "/resume#competitions", label: "Competitions", icon: Trophy },
 ];
 
 export function Navigation() {
   const [location] = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isResumeHovered, setIsResumeHovered] = useState(false);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -84,61 +79,7 @@ export function Navigation() {
                   </Link>
                 ))}
 
-                {/* Resume Dropdown */}
-                <div 
-                  className="relative"
-                  onMouseEnter={() => setIsResumeHovered(true)}
-                  onMouseLeave={() => setIsResumeHovered(false)}
-                >
-                  <Link href="/resume">
-                    <motion.span
-                      className={`px-3 py-2 rounded-md text-sm font-medium cursor-pointer transition-colors duration-200 relative flex items-center ${
-                        location === "/resume" || location.startsWith("/resume")
-                          ? "text-primary"
-                          : "text-muted-foreground hover:text-foreground"
-                      }`}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      Resume
-                      <ChevronDown className="ml-1 h-3 w-3" />
-                      {(location === "/resume" || location.startsWith("/resume")) && (
-                        <motion.div
-                          className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
-                          layoutId="activeIndicator"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ duration: 0.2 }}
-                        />
-                      )}
-                    </motion.span>
-                  </Link>
 
-                  {/* Dropdown Menu */}
-                  <AnimatePresence>
-                    {isResumeHovered && (
-                      <motion.div
-                        className="absolute top-full left-0 mt-2 w-48 glass-effect rounded-lg border border-border/20 py-2 z-50"
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        {resumeSubLinks.map((subLink) => (
-                          <Link key={subLink.href} href={subLink.href}>
-                            <motion.div
-                              className="flex items-center px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent/50 transition-colors duration-200 cursor-pointer"
-                              whileHover={{ x: 5 }}
-                            >
-                              <subLink.icon className="h-4 w-4 mr-3" />
-                              {subLink.label}
-                            </motion.div>
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
               </div>
             </div>
 
@@ -184,19 +125,6 @@ export function Navigation() {
                     </motion.span>
                   </Link>
                 ))}
-                <Link href="/resume">
-                  <motion.span
-                    className={`block px-3 py-2 rounded-md text-base font-medium cursor-pointer transition-colors duration-200 ${
-                      location === "/resume" || location.startsWith("/resume")
-                        ? "text-primary bg-accent"
-                        : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
-                    }`}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    whileHover={{ x: 5 }}
-                  >
-                    Resume
-                  </motion.span>
-                </Link>
               </div>
             </motion.div>
           )}
