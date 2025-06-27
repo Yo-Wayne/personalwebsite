@@ -4,19 +4,19 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import { 
-  Code, 
-  Coffee, 
-  Zap, 
-  Users, 
-  FileText, 
-  Laptop, 
-  PenTool, 
+import {
+  Code,
+  Coffee,
+  Zap,
+  Users,
+  FileText,
+  Laptop,
+  PenTool,
   Mail,
   Brain,
   ArrowRight,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
 } from "lucide-react";
 
 // Import your photos
@@ -73,14 +73,6 @@ const quickNav = [
     description: "Work & Research",
     color: "hover:bg-cyan-500/10",
     iconColor: "text-cyan-500",
-  },
-  {
-    href: "/blog",
-    icon: Brain,
-    title: "Blog",
-    description: "Vision & Thoughts",
-    color: "hover:bg-green-500/10",
-    iconColor: "text-green-500",
   },
   {
     href: "/contact",
@@ -140,7 +132,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <ScrollReveal className="space-y-8">
               <div>
-                <motion.h1 
+                <motion.h1
                   className="text-5xl lg:text-7xl font-bold mb-4"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -148,7 +140,7 @@ export default function Home() {
                 >
                   <span className="gradient-text">Yo-Wayne Chen</span>
                 </motion.h1>
-                <motion.p 
+                <motion.p
                   className="text-xl lg:text-2xl text-muted-foreground mb-6"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -156,18 +148,42 @@ export default function Home() {
                 >
                   Full-Stack Software Engineer
                 </motion.p>
-                <motion.p 
+                <motion.p
                   className="text-lg text-muted-foreground leading-relaxed max-w-2xl"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                  I'm a 17-year-old student from Taipei, Taiwan, currently studying at Asia American International Academy. At my core, I'm driven by a simple yet difficult mission: to help build a better world. Whether it's creating tools that support people with disabilities, empowering young creators through open-source platforms, or making technology more inclusive and accessible, I believe thoughtful design and engineering can be powerful tools for meaningful change.
+                  I'm a 17-year-old student from Taipei, Taiwan, currently
+                  studying at Asia American International Academy.
+                </motion.p>
+                <motion.p
+                  className="text-lg text-muted-foreground leading-relaxed max-w-2xl"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                >
+                  At my core, I'm driven by a simple yet difficult mission: to
+                  help build a better world. Whether it's creating tools that
+                  support people with disabilities, empowering young creators
+                  through open-source platforms, or making technology more
+                  inclusive and accessible, I believe thoughtful design and
+                  engineering can be powerful tools for meaningful change.
+                </motion.p>
+                <motion.p
+                  className="text-lg text-muted-foreground leading-relaxed max-w-2xl"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                >
+                  I genuinely hope everyone can live a more meaningful,
+                  fulfilling life - and I’m here to build the future that makes
+                  that possible.
                 </motion.p>
               </div>
-              
+
               {/* Fun Facts Section */}
-              <motion.div 
+              <motion.div
                 className="grid grid-cols-2 gap-4"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -179,13 +195,17 @@ export default function Home() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <Card className={`glass-effect cursor-pointer transition-all duration-300 ${stat.bgColor} border-0`}>
+                    <Card
+                      className={`glass-effect cursor-pointer transition-all duration-300 ${stat.bgColor} border-0`}
+                    >
                       <CardContent className="p-4">
                         <div className="flex items-center space-x-3">
                           <stat.icon className={`h-6 w-6 ${stat.color}`} />
                           <div>
                             <p className="font-semibold">{stat.value}</p>
-                            <p className="text-sm text-muted-foreground">{stat.label}</p>
+                            <p className="text-sm text-muted-foreground">
+                              {stat.label}
+                            </p>
                           </div>
                         </div>
                       </CardContent>
@@ -195,17 +215,14 @@ export default function Home() {
               </motion.div>
 
               {/* CTA Buttons */}
-              <motion.div 
+              <motion.div
                 className="flex flex-wrap gap-4"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
               >
                 <Link href="/resume">
-                  <Button 
-                    size="lg" 
-                    className="group"
-                  >
+                  <Button size="lg" className="group">
                     View Resume
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Button>
@@ -220,7 +237,7 @@ export default function Home() {
 
             {/* Photo Carousel */}
             <ScrollReveal direction="left" delay={0.4}>
-              <motion.div 
+              <motion.div
                 className="relative animate-float"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
@@ -259,34 +276,18 @@ export default function Home() {
 
                   {/* Photo Display with Navigation */}
                   <div className="relative">
-                    <img 
+                    <img
                       src={photos[currentPhotoIndex]}
                       alt={`Yo-Wayne Chen - Photo ${currentPhotoIndex + 1}`}
-                      className="rounded-2xl shadow-2xl w-full h-auto object-cover aspect-square" 
+                      className="rounded-2xl shadow-2xl w-full h-auto object-cover aspect-square"
                     />
                     <div className="absolute inset-0 rounded-2xl ring-1 ring-white/10"></div>
-                    
-                    {/* Navigation Buttons */}
-                    <button
-                      onClick={prevPhoto}
-                      className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-all duration-200 z-10"
-                    >
-                      <ChevronLeft className="h-4 w-4" />
-                    </button>
-                    
-                    <button
-                      onClick={nextPhoto}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-all duration-200 z-10"
-                    >
-                      <ChevronRight className="h-4 w-4" />
-                    </button>
 
                     {/* Photo Indicators */}
                     <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
                       {photos.map((_, index) => (
                         <button
                           key={index}
-                          onClick={() => setCurrentPhotoIndex(index)}
                           className={`w-2 h-2 rounded-full transition-all duration-200 ${
                             index === currentPhotoIndex
                               ? "bg-white scale-125"
@@ -296,11 +297,11 @@ export default function Home() {
                       ))}
                     </div>
                   </div>
-                  
+
                   {/* Floating elements */}
                   <div className="absolute -top-4 -right-4 w-20 h-20 bg-blue-500/20 rounded-full blur-xl animate-pulse"></div>
                   <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-cyan-500/20 rounded-full blur-xl animate-pulse"></div>
-                  
+
                   {/* Bottom Left Achievement Badge */}
                   <motion.div
                     className="absolute -bottom-6 -left-6 glass-effect rounded-xl p-3 border border-purple-500/20 bg-purple-500/10"
@@ -309,8 +310,12 @@ export default function Home() {
                     transition={{ duration: 0.6, delay: 1.6 }}
                     whileHover={{ scale: 1.1, rotate: 5 }}
                   >
-                    <div className="text-xs font-bold text-purple-400">4+ YRS</div>
-                    <div className="text-xs text-muted-foreground">Experience</div>
+                    <div className="text-xs font-bold text-purple-400">
+                      4+ YRS
+                    </div>
+                    <div className="text-xs text-muted-foreground">
+                      Experience
+                    </div>
                   </motion.div>
                 </div>
               </motion.div>
@@ -319,7 +324,7 @@ export default function Home() {
 
           {/* Quick Navigation Cards */}
           <ScrollReveal delay={0.8}>
-            <div className="mt-20 grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6">
               {quickNav.map((item, index) => (
                 <motion.div
                   key={item.href}
@@ -328,11 +333,19 @@ export default function Home() {
                   transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
                 >
                   <Link href={item.href}>
-                    <Card className={`glass-effect cursor-pointer transition-all duration-300 hover:scale-105 ${item.color} border-0 group`}>
+                    <Card
+                      className={`glass-effect cursor-pointer transition-all duration-300 hover:scale-105 ${item.color} border-0 group`}
+                    >
                       <CardContent className="p-6 text-center">
-                        <item.icon className={`h-8 w-8 ${item.iconColor} mb-4 mx-auto transition-transform duration-300 group-hover:scale-110`} />
-                        <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                        <p className="text-muted-foreground">{item.description}</p>
+                        <item.icon
+                          className={`h-8 w-8 ${item.iconColor} mb-4 mx-auto transition-transform duration-300 group-hover:scale-110`}
+                        />
+                        <h3 className="text-xl font-semibold mb-2">
+                          {item.title}
+                        </h3>
+                        <p className="text-muted-foreground">
+                          {item.description}
+                        </p>
                       </CardContent>
                     </Card>
                   </Link>
@@ -342,8 +355,6 @@ export default function Home() {
           </ScrollReveal>
         </div>
       </section>
-
-
     </div>
   );
 }

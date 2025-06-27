@@ -8,7 +8,6 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/resume", label: "Resume" },
   { href: "/experiences", label: "Experiences" },
-  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -16,7 +15,6 @@ export function Navigation() {
   const [location] = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,8 +76,6 @@ export function Navigation() {
                     </motion.span>
                   </Link>
                 ))}
-
-
               </div>
             </div>
 
@@ -130,7 +126,7 @@ export function Navigation() {
           )}
         </AnimatePresence>
       </motion.nav>
-      
+
       {/* Spacer for fixed navigation */}
       <div className="h-16" />
     </>
