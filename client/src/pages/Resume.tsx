@@ -14,6 +14,14 @@ const skillCategories = [
   "AI/ML",
 ] as const;
 
+const bgMap: Record<(typeof skillCategories)[number], string> = {
+  "Algorithm Design": "bg-blue-500",
+  Frontend: "bg-cyan-500",
+  Backend: "bg-green-500",
+  "Robotics & Systems": "bg-yellow-500",
+  "AI/ML": "bg-purple-500",
+};
+
 export default function Resume() {
   const categorizedSkills = skillCategories.map((category) => ({
     category,
@@ -92,7 +100,7 @@ export default function Resume() {
                             <div className="flex items-center space-x-2">
                               <div className="w-20 bg-muted rounded-full h-2">
                                 <motion.div
-                                  className={`bg-${categoryData.color}-500 h-2 rounded-full`}
+                                  className={`${bgMap[categoryData.category]} h-2 rounded-full`}
                                   initial={{ width: 0 }}
                                   animate={{ width: `${skill.level}%` }}
                                   transition={{

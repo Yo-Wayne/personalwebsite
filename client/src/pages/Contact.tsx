@@ -6,18 +6,25 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { useToast } from "@/hooks/use-toast";
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Github, 
-  Linkedin, 
-  Twitter, 
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Github,
+  Instagram,
+  Linkedin,
   Send,
-  Clock
+  Clock,
 } from "lucide-react";
 import { insertContactSchema, InsertContact } from "@shared/schema";
 
@@ -50,21 +57,21 @@ const contactInfo = [
 const socialLinks = [
   {
     name: "GitHub",
-    href: "https://github.com/alexchen",
+    href: "https://github.com/Yo-Wayne",
     icon: Github,
     color: "hover:bg-gray-700/50",
   },
   {
     name: "LinkedIn",
-    href: "https://linkedin.com/in/alexchen",
+    href: "www.linkedin.com/in/yowaynechen1",
     icon: Linkedin,
     color: "hover:bg-blue-700/50 text-blue-400",
   },
   {
-    name: "Twitter",
-    href: "https://twitter.com/alexchen",
-    icon: Twitter,
-    color: "hover:bg-cyan-700/50 text-cyan-400",
+    name: "Instagram",
+    href: "https://instagram.com/yowayne0501",
+    icon: Instagram,
+    color: "hover:bg-pink-600/50 text-pink-400",
   },
 ];
 
@@ -85,18 +92,18 @@ export default function Contact() {
 
   const onSubmit = async (data: InsertContact) => {
     setIsSubmitting(true);
-    
+
     try {
-      const response = await fetch('/api/contacts', {
-        method: 'POST',
+      const response = await fetch("/api/contacts", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       });
-      
+
       const result = await response.json();
-      
+
       if (result.success) {
         toast({
           title: "Message sent successfully!",
@@ -104,10 +111,10 @@ export default function Contact() {
         });
         form.reset();
       } else {
-        throw new Error(result.error || 'Failed to send message');
+        throw new Error(result.error || "Failed to send message");
       }
     } catch (error) {
-      console.error('Error sending message:', error);
+      console.error("Error sending message:", error);
       toast({
         title: "Error sending message",
         description: "Please try again later or contact me directly via email.",
@@ -123,9 +130,13 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <h1 className="text-4xl lg:text-5xl font-bold mb-4 gradient-text">Get In Touch</h1>
+            <h1 className="text-4xl lg:text-5xl font-bold mb-4 gradient-text">
+              Get In Touch
+            </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Let's collaborate on something amazing. Whether you have a project in mind or just want to chat about tech, I'd love to hear from you.
+              Let's collaborate on something amazing. Whether you have a project
+              in mind or just want to chat about tech, I'd love to hear from
+              you.
             </p>
           </div>
         </ScrollReveal>
@@ -137,7 +148,10 @@ export default function Contact() {
               <CardContent className="p-8">
                 <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
                 <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  <form
+                    onSubmit={form.handleSubmit(onSubmit)}
+                    className="space-y-6"
+                  >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <FormField
                         control={form.control}
@@ -166,7 +180,7 @@ export default function Contact() {
                         )}
                       />
                     </div>
-                    
+
                     <FormField
                       control={form.control}
                       name="email"
@@ -174,13 +188,17 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel>Email</FormLabel>
                           <FormControl>
-                            <Input type="email" placeholder="john@example.com" {...field} />
+                            <Input
+                              type="email"
+                              placeholder="john@example.com"
+                              {...field}
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
-                    
+
                     <FormField
                       control={form.control}
                       name="subject"
@@ -188,13 +206,16 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel>Subject</FormLabel>
                           <FormControl>
-                            <Input placeholder="Let's work together!" {...field} />
+                            <Input
+                              placeholder="Let's work together!"
+                              {...field}
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
-                    
+
                     <FormField
                       control={form.control}
                       name="message"
@@ -202,27 +223,31 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel>Message</FormLabel>
                           <FormControl>
-                            <Textarea 
-                              placeholder="Tell me about your project..." 
+                            <Textarea
+                              placeholder="Tell me about your project..."
                               rows={6}
                               className="resize-none"
-                              {...field} 
+                              {...field}
                             />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
-                    
-                    <Button 
-                      type="submit" 
+
+                    <Button
+                      type="submit"
                       className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? (
                         <motion.div
                           animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          transition={{
+                            duration: 1,
+                            repeat: Infinity,
+                            ease: "linear",
+                          }}
                           className="h-4 w-4 mr-2 border-2 border-current border-t-transparent rounded-full"
                         />
                       ) : (
@@ -242,7 +267,9 @@ export default function Contact() {
             <ScrollReveal delay={0.4}>
               <Card className="glass-effect border-0">
                 <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
+                  <h3 className="text-2xl font-bold mb-6">
+                    Contact Information
+                  </h3>
                   <div className="space-y-6">
                     {contactInfo.map((info, index) => (
                       <motion.div
@@ -252,20 +279,24 @@ export default function Contact() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
                       >
-                        <div className={`w-12 h-12 ${info.bgColor} rounded-lg flex items-center justify-center`}>
+                        <div
+                          className={`w-12 h-12 ${info.bgColor} rounded-lg flex items-center justify-center`}
+                        >
                           <info.icon className={`h-5 w-5 ${info.color}`} />
                         </div>
                         <div>
                           <p className="font-medium">{info.label}</p>
                           {info.href ? (
-                            <a 
-                              href={info.href} 
+                            <a
+                              href={info.href}
                               className={`text-muted-foreground transition-colors duration-200 ${info.color} hover:${info.color}`}
                             >
                               {info.value}
                             </a>
                           ) : (
-                            <p className="text-muted-foreground">{info.value}</p>
+                            <p className="text-muted-foreground">
+                              {info.value}
+                            </p>
                           )}
                         </div>
                       </motion.div>
@@ -312,7 +343,8 @@ export default function Contact() {
                     <h4 className="font-semibold">Quick Response</h4>
                   </div>
                   <p className="text-muted-foreground text-sm">
-                    I typically respond to messages within 24 hours. For urgent matters, feel free to reach out on LinkedIn.
+                    I typically respond to messages within 24 hours. For urgent
+                    matters, feel free to reach out on LinkedIn.
                   </p>
                 </CardContent>
               </Card>

@@ -96,7 +96,7 @@ export const leadershipExperiences: LeadershipExperience[] = [
   {
     title: "President",
     organization: "Student Council",
-    duration: "2024 - Present",
+    duration: "June 2025 - Present",
     description:
       "Leading student body initiatives and representing student interests at Asia American International Academy.",
     impact: [
@@ -109,11 +109,11 @@ export const leadershipExperiences: LeadershipExperience[] = [
   {
     title: "Team Captain",
     organization: "VEX Robotics Team",
-    duration: "2023 - Present",
+    duration: "August 2022 - Present",
     description:
       "Leading robotics team in competitive programming and engineering challenges.",
     impact: [
-      "Achieved VEX Robotics Champion status",
+      "Won Think award in VEX Robotics World Championship",
       "Mentored team members in programming and design",
       "Developed innovative robot solutions",
     ],
