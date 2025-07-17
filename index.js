@@ -133,7 +133,7 @@ var vite_config_default = defineConfig({
       )
     ] : []
   ],
-  base: "/portfolio",
+  base: "/personalwebsite",
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
